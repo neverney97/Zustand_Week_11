@@ -11,6 +11,13 @@ const useUsersStore = create((set) => ({
     // Add new user
     addNewUser: (newUser) => set((state) => ({
         users: [...state.users, {...newUser, id: uuidv4()}]
+    })),
+
+    // Edit user
+    editUser: (userId, newDetails) => set((state) => ({
+        users: state.users.map((user) => 
+            user.id === userId ? {...user, ...newDetails} : user
+        ),
     }))
 
 }))
