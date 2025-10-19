@@ -5,6 +5,7 @@ import useUsersStore from '../store/usersStore';
 
 const Item = ({user}) => {
     const editUser = useUsersStore((state) => state.editUser);
+    const deleteUser = useUsersStore((state) => state.deleteUser);
 
 
    const [open, setOpen] = useState(false);
@@ -65,7 +66,7 @@ const Item = ({user}) => {
           >
             Edit
           </button>
-          <button className='bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-slate-600'>
+          <button onClick={() => deleteUser(user.id)} className='bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-slate-600'>
             Delete
           </button>
         </div>

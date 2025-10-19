@@ -18,7 +18,13 @@ const useUsersStore = create((set) => ({
         users: state.users.map((user) => 
             user.id === userId ? {...user, ...newDetails} : user
         ),
-    }))
+    })),
+
+    // Delete user
+    deleteUser: (userId) =>
+        set((state) => ({
+            users: state.users.filter((user) => user.id !== userId),
+        })),
 
 }))
 
